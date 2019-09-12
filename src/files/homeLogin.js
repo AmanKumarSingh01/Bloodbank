@@ -3,7 +3,7 @@ import withFirebaseAuth from "react-auth-firebase";
 import firebase from "./../components/firebase/firebase";
 import Home from "./../files/home";
 import ParticlesContainer from './../components/Particlecontainer'
-import { Card } from "react-bootstrap";
+import { Card ,Nav,Navbar } from "react-bootstrap";
 
 
 // const email = "test@test.com";
@@ -35,7 +35,7 @@ class App extends Component {
     } = this.props;
     const { email, password } = this.state;
     if (user) {
-      console.log()
+      console.log(user)
       localStorage.setItem('Name',user.displayName)
       localStorage.setItem('Email',user.email)
       localStorage.setItem('url',user.photoURL)
@@ -45,66 +45,33 @@ class App extends Component {
     }
     return (
       <div className = 'container'>
-          <ParticlesContainer/>
-            <Card>
-                <Card.Title>Login</Card.Title>
-                <Card.Body>
-                <form onSubmit={e => e.preventDefault()}>
-          <input
-            type="text"
-            placeholder="Email"
-            onChange={e => this.setState({ email: e.target.value })}
-          />{" "}
-          <br />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={e => this.setState({ password: e.target.value })}
-          />
-          <br />
-          {!user && (
-            <button
-              type="submit"
-              onClick={() => signInWithEmail(email, password)}
-            >
-              SignIn
-            </button>
-          )}
-        </form>
-        <form onSubmit={e => e.preventDefault()}>
-          <input
-            type="text"
-            placeholder="Email"
-            onChange={e =>
-              this.setState({
-                email: e.target.value
-              })
-            }
-            value={email}
-          />{" "}
-          <br />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={e => this.setState({ password: e.target.value })}
-            value={password}
-          />{" "}
-          <br />
-          <button
-            type="submit"
-            onClick={() => signUpWithEmail(email, password)}
-          >
-            SignUp
-          </button>
-        </form>
-        <br />
+
+<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar.Brand href="#">Blood--Bank</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav>
+                <Nav.Link ><button onClick={signInWithGoogle}>
+                <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"></img>Signin with Google
+                  </button></Nav.Link>
+                <Nav.Link >
+                <button onClick={signInWithFacebook}>Signin with Facebook</button>
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+          <div>
+            this is a project made my Aman kumar singh<br></br><br></br>
+
+            Login with your google account to see all the features!!
+          </div>
+          {/* 
         <button onClick={signInWithGoogle}>Signin with Google</button> <br />
         <button onClick={signInWithFacebook}>Signin with Facebook</button>{" "}
         <br />
         <button onClick={signInWithGithub}>Signin with Github</button> <br />
         <button onClick={signInWithTwitter}>Signin with Twitter</button> <br />
-                </Card.Body>
-            </Card>
+         */}
       </div>
     );
   }
