@@ -1,3 +1,20 @@
+This is a project, in which people who need blood at any tme request it and  if there is any donor available the request will be served soon!!
+
+I am Currently working on the mobile version of this app.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
